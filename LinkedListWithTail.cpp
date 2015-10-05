@@ -108,10 +108,18 @@ int insertLast(int item)
     struct listNode * newNode ;
     newNode = (struct listNode*) malloc (sizeof(struct listNode)) ;
     newNode->item = item ;
-    tail->next=newNode;
     newNode->next=0;
-    tail=newNode;
-    return SUCCESS_VALUE;
+    if(list!=0)
+    {
+        tail->next=newNode;
+        tail=newNode;
+        return SUCCESS_VALUE;
+    }
+    else
+    {
+        list=newNode;
+        tail=newNode;
+    }
 }
 
 
